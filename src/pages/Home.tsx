@@ -117,22 +117,22 @@ const Home = () => {
                 <text x="220" y="98" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold">PROJETO</text>
                 
                 {/* Sparkles around the object */}
-                <circle cx="195" cy="80" r="1.5" fill="hsl(var(--accent))" opacity="0.8">
-                  <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+                <circle cx="195" cy="80" r="1.5" fill="hsl(var(--accent))" className="animate-sparkle-dance">
                 </circle>
-                <circle cx="245" cy="88" r="2" fill="hsl(var(--warm))" opacity="0.6">
-                  <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2s" repeatCount="indefinite"/>
+                <circle cx="245" cy="88" r="2" fill="hsl(var(--warm))" className="animate-sparkle-dance" style={{ animationDelay: '0.3s' }}>
                 </circle>
-                <circle cx="205" cy="110" r="1" fill="hsl(var(--secondary))" opacity="0.7">
-                  <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.8s" repeatCount="indefinite"/>
+                <circle cx="205" cy="110" r="1" fill="hsl(var(--secondary))" className="animate-sparkle-dance" style={{ animationDelay: '0.6s' }}>
+                </circle>
+                <circle cx="185" cy="95" r="1.2" fill="hsl(var(--primary-light))" className="animate-sparkle-dance" style={{ animationDelay: '0.9s' }}>
                 </circle>
               </g>
               
-              {/* Effort lines */}
-              <g opacity="0.4">
-                <line x1="25" y1="85" x2="30" y2="80" stroke="hsl(var(--primary))" strokeWidth="2"/>
-                <line x1="25" y1="90" x2="30" y2="85" stroke="hsl(var(--primary))" strokeWidth="2"/>
-                <line x1="25" y1="95" x2="30" y2="90" stroke="hsl(var(--primary))" strokeWidth="2"/>
+              {/* Effort lines - more dynamic */}
+              <g opacity="0.6" className="animate-logo-pulse">
+                <line x1="25" y1="82" x2="32" y2="76" stroke="hsl(var(--primary))" strokeWidth="3"/>
+                <line x1="25" y1="88" x2="32" y2="82" stroke="hsl(var(--primary-light))" strokeWidth="3"/>
+                <line x1="25" y1="94" x2="32" y2="88" stroke="hsl(var(--accent))" strokeWidth="3"/>
+                <line x1="20" y1="86" x2="27" y2="80" stroke="hsl(var(--secondary))" strokeWidth="2"/>
               </g>
             </svg>
           </div>
@@ -141,12 +141,12 @@ const Home = () => {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="gradient-text">
-                <AnimatedText text="Projeto Social" delay={500} />
+              <span className="gradient-text animate-logo-pulse">
+                <AnimatedText text="Projeto Social" delay={300} />
               </span>
               <br />
-              <span className="text-primary animate-bounce-in">
-                <AnimatedText text="Fraternidade Despertar" delay={1500} />
+              <span className="text-primary animate-logo-pulse" style={{ animationDelay: '0.5s' }}>
+                <AnimatedText text="Fraternidade Despertar" delay={800} />
               </span>
             </h1>
             
@@ -158,13 +158,13 @@ const Home = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button variant="hero" size="lg" asChild className="animate-button-appear bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300">
+              <Button variant="hero" size="lg" asChild className="bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-200 hover-glow animate-logo-pulse">
                 <Link to="/projetos">
                   Conheça Nossos Projetos
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="animate-button-appear border-primary text-primary hover:bg-primary hover:text-white" style={{ animationDelay: '2.4s' }}>
+              <Button variant="outline" size="lg" asChild className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-200 hover-lift" style={{ animationDelay: '1s' }}>
                 <Link to="/orquestra">
                   Nossa Orquestra
                 </Link>
