@@ -46,107 +46,15 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/10 to-secondary/10">
-        
-        {/* Enhanced Rope Pulling Animation */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-          <div className="animate-rope-pull">
-            <svg 
-              width="280" 
-              height="200" 
-              viewBox="0 0 280 200" 
-              className="absolute -top-24 left-1/2 transform -translate-x-1/2"
-            >
-              {/* Ground line */}
-              <line x1="0" y1="140" x2="280" y2="140" stroke="hsl(var(--muted-foreground))" strokeWidth="2" opacity="0.3"/>
-              
-              {/* Person pulling rope */}
-              <g className="fill-primary animate-person-strain" style={{ transformOrigin: '50px 110px' }}>
-                {/* Shadow */}
-                <ellipse cx="50" cy="135" rx="18" ry="4" fill="hsl(var(--muted-foreground))" opacity="0.2"/>
-                
-                {/* Body */}
-                <ellipse cx="50" cy="90" rx="16" ry="28" />
-                
-                {/* Head */}
-                <circle cx="50" cy="50" r="14" />
-                <circle cx="47" cy="47" r="2" fill="white"/>
-                <circle cx="53" cy="47" r="2" fill="white"/>
-                
-                {/* Arms - more detailed */}
-                <ellipse cx="72" cy="75" rx="22" ry="10" transform="rotate(20 72 75)" />
-                <circle cx="85" cy="82" r="6" />
-                
-                {/* Legs - more dynamic */}
-                <ellipse cx="42" cy="120" rx="10" ry="18" transform="rotate(-15 42 120)" />
-                <ellipse cx="58" cy="120" rx="10" ry="18" transform="rotate(15 58 120)" />
-                <circle cx="38" cy="135" r="5" />
-                <circle cx="62" cy="135" r="5" />
-                
-                {/* Hair */}
-                <path d="M 42 42 Q 50 35 58 42 Q 55 38 50 37 Q 45 38 42 42" fill="hsl(var(--primary-dark))"/>
-              </g>
-              
-              {/* Dynamic Rope with tension effect */}
-              <path 
-                d="M 88 82 Q 140 85 200 90" 
-                stroke="hsl(var(--secondary))" 
-                strokeWidth="4" 
-                fill="none"
-                className="animate-rope-tension"
-                strokeDasharray="0"
-              />
-              
-              {/* Rope highlight for tension */}
-              <path 
-                d="M 88 82 Q 140 85 200 90" 
-                stroke="hsl(var(--primary-light))" 
-                strokeWidth="2" 
-                fill="none"
-                className="animate-rope-tension"
-                opacity="0.6"
-              />
-              
-              {/* Object being pulled (representing the project) */}
-              <g className="animate-button-rope-reveal" style={{ transformOrigin: '220px 95px' }}>
-                {/* Shadow of object */}
-                <ellipse cx="220" cy="110" rx="15" ry="3" fill="hsl(var(--muted-foreground))" opacity="0.2"/>
-                
-                {/* Main object - representing "Conheça Nossos Projetos" */}
-                <rect x="200" y="85" width="40" height="20" rx="10" fill="hsl(var(--primary))" />
-                <rect x="202" y="87" width="36" height="16" rx="8" fill="hsl(var(--primary-light))" />
-                <text x="220" y="98" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold">PROJETO</text>
-                
-                {/* Sparkles around the object */}
-                <circle cx="195" cy="80" r="1.5" fill="hsl(var(--accent))" className="animate-sparkle-dance">
-                </circle>
-                <circle cx="245" cy="88" r="2" fill="hsl(var(--warm))" className="animate-sparkle-dance" style={{ animationDelay: '0.3s' }}>
-                </circle>
-                <circle cx="205" cy="110" r="1" fill="hsl(var(--secondary))" className="animate-sparkle-dance" style={{ animationDelay: '0.6s' }}>
-                </circle>
-                <circle cx="185" cy="95" r="1.2" fill="hsl(var(--primary-light))" className="animate-sparkle-dance" style={{ animationDelay: '0.9s' }}>
-                </circle>
-              </g>
-              
-              {/* Effort lines - more dynamic */}
-              <g opacity="0.6" className="animate-logo-pulse">
-                <line x1="25" y1="82" x2="32" y2="76" stroke="hsl(var(--primary))" strokeWidth="3"/>
-                <line x1="25" y1="88" x2="32" y2="82" stroke="hsl(var(--primary-light))" strokeWidth="3"/>
-                <line x1="25" y1="94" x2="32" y2="88" stroke="hsl(var(--accent))" strokeWidth="3"/>
-                <line x1="20" y1="86" x2="27" y2="80" stroke="hsl(var(--secondary))" strokeWidth="2"/>
-              </g>
-            </svg>
-          </div>
-        </div>
-
         <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className={`transition-all duration-1000 ${isVisible ? 'animate-slide-up' : 'opacity-0'}`}>
+          <div className={`transition-all duration-300 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="gradient-text animate-logo-pulse">
-                <AnimatedText text="Projeto Social" delay={300} />
+              <span className="gradient-text">
+                <AnimatedText text="Projeto Social" delay={0} />
               </span>
               <br />
-              <span className="text-primary animate-logo-pulse" style={{ animationDelay: '0.5s' }}>
-                <AnimatedText text="Fraternidade Despertar" delay={800} />
+              <span className="text-primary animate-logo-pulse">
+                <AnimatedText text="Fraternidade Despertar" delay={100} />
               </span>
             </h1>
             
