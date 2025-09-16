@@ -45,16 +45,38 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20" />
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/10 to-secondary/10">
         
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full animate-float" />
-          <div className="absolute top-40 right-20 w-16 h-16 bg-secondary/20 rounded-full animate-float" style={{ animationDelay: '1s' }} />
-          <div className="absolute bottom-20 left-20 w-24 h-24 bg-accent/20 rounded-full animate-float" style={{ animationDelay: '2s' }} />
-          <div className="absolute bottom-40 right-10 w-12 h-12 bg-warm/20 rounded-full animate-float" style={{ animationDelay: '0.5s' }} />
+        {/* Rope Animation */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="animate-rope-pull">
+            <svg 
+              width="200" 
+              height="150" 
+              viewBox="0 0 200 150" 
+              className="absolute -top-20 left-1/2 transform -translate-x-1/2"
+            >
+              {/* Person pulling rope */}
+              <g className="fill-primary">
+                {/* Body */}
+                <ellipse cx="50" cy="80" rx="15" ry="25" />
+                {/* Head */}
+                <circle cx="50" cy="45" r="12" />
+                {/* Arms */}
+                <ellipse cx="70" cy="70" rx="20" ry="8" transform="rotate(15 70 70)" />
+                {/* Legs */}
+                <ellipse cx="45" cy="110" rx="8" ry="15" transform="rotate(-10 45 110)" />
+                <ellipse cx="55" cy="110" rx="8" ry="15" transform="rotate(10 55 110)" />
+              </g>
+              {/* Rope */}
+              <path 
+                d="M 85 70 Q 120 75 150 80" 
+                stroke="hsl(var(--secondary))" 
+                strokeWidth="4" 
+                fill="none"
+              />
+            </svg>
+          </div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center">
@@ -76,14 +98,14 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-bounce-in" style={{ animationDelay: '3s' }}>
-              <Button variant="hero" size="lg" asChild className="animate-gradient">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button variant="hero" size="lg" asChild className="animate-button-appear bg-primary hover:bg-primary-dark text-white shadow-lg hover:shadow-xl transition-all duration-300">
                 <Link to="/projetos">
                   Conheça Nossos Projetos
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button variant="social" size="lg" asChild>
+              <Button variant="outline" size="lg" asChild className="animate-button-appear border-primary text-primary hover:bg-primary hover:text-white" style={{ animationDelay: '2.4s' }}>
                 <Link to="/orquestra">
                   Nossa Orquestra
                 </Link>
