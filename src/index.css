@@ -232,39 +232,130 @@ Cores vibrantes e harmônicas que transmitem acolhimento, solidariedade e espera
     }
   }
 
-  @keyframes rope-pull {
-    0% {
-      transform: translateX(-100px) rotate(-10deg);
-      opacity: 0;
+  /* Enhanced rope pulling animation */
+  @keyframes rope-pull-container {
+    0% { 
+      transform: translateX(0) translateY(0) rotate(0deg);
     }
-    30% {
-      transform: translateX(0) rotate(0deg);
-      opacity: 1;
+    15% { 
+      transform: translateX(-12px) translateY(-5px) rotate(-3deg);
     }
-    60% {
-      transform: translateX(20px) rotate(5deg);
+    30% { 
+      transform: translateX(-25px) translateY(-12px) rotate(-8deg);
     }
-    100% {
-      transform: translateX(0) rotate(0deg);
-      opacity: 1;
+    45% { 
+      transform: translateX(-35px) translateY(-18px) rotate(-12deg);
+    }
+    60% { 
+      transform: translateX(-28px) translateY(-12px) rotate(-6deg);
+    }
+    75% { 
+      transform: translateX(-15px) translateY(-5px) rotate(-2deg);
+    }
+    85% { 
+      transform: translateX(-8px) translateY(-2px) rotate(-1deg);
+    }
+    100% { 
+      transform: translateX(0) translateY(0) rotate(0deg);
     }
   }
 
-  @keyframes button-appear {
+  @keyframes person-strain {
+    0%, 100% { 
+      transform: scale(1) skewX(0deg);
+    }
+    20% { 
+      transform: scale(1.02) skewX(-2deg);
+    }
+    35% { 
+      transform: scale(1.08) skewX(-5deg);
+    }
+    50% { 
+      transform: scale(1.12) skewX(-8deg);
+    }
+    65% { 
+      transform: scale(1.05) skewX(-3deg);
+    }
+    80% { 
+      transform: scale(1.01) skewX(-1deg);
+    }
+  }
+
+  @keyframes rope-tension {
+    0%, 100% { 
+      stroke-width: 4;
+      stroke: hsl(var(--secondary));
+    }
+    35% { 
+      stroke-width: 6;
+      stroke: hsl(var(--primary));
+    }
+    50% { 
+      stroke-width: 8;
+      stroke: hsl(var(--primary-dark));
+    }
+    65% { 
+      stroke-width: 5;
+      stroke: hsl(var(--primary));
+    }
+  }
+
+  @keyframes button-rope-reveal {
     0% {
-      transform: translateY(50px) scale(0.8);
       opacity: 0;
+      transform: translateX(150px) scale(0.5) rotate(10deg);
+    }
+    60% {
+      opacity: 0;
+      transform: translateX(100px) scale(0.7) rotate(5deg);
+    }
+    80% {
+      opacity: 0.5;
+      transform: translateX(30px) scale(0.9) rotate(1deg);
     }
     100% {
-      transform: translateY(0) scale(1);
       opacity: 1;
+      transform: translateX(0) scale(1) rotate(0deg);
+    }
+  }
+
+  @keyframes rope-wave-dynamic {
+    0%, 100% { 
+      d: path("M 85 70 Q 120 75 150 80");
+    }
+    20% { 
+      d: path("M 85 70 Q 115 65 150 80");
+    }
+    35% { 
+      d: path("M 85 70 Q 108 55 150 80");
+    }
+    50% { 
+      d: path("M 85 70 Q 105 45 150 80");
+    }
+    65% { 
+      d: path("M 85 70 Q 112 60 150 80");
+    }
+    80% { 
+      d: path("M 85 70 Q 118 70 150 80");
     }
   }
 
   .animate-rope-pull {
-    animation: rope-pull 2s ease-out;
+    animation: rope-pull-container 4s ease-in-out infinite;
   }
 
-  .animate-button-appear {
-    animation: button-appear 0.6s ease-out 2.2s both;
+  .animate-person-strain {
+    animation: person-strain 4s ease-in-out infinite;
+  }
+
+  .animate-rope-tension {
+    animation: rope-tension 4s ease-in-out infinite;
+  }
+
+  .animate-rope-wave {
+    animation: rope-wave-dynamic 4s ease-in-out infinite;
+  }
+
+  .animate-button-rope-reveal {
+    animation: button-rope-reveal 4s ease-out infinite;
   }

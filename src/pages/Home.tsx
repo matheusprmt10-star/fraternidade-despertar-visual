@@ -47,34 +47,93 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-primary/10 to-secondary/10">
         
-        {/* Rope Animation */}
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* Enhanced Rope Pulling Animation */}
+        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
           <div className="animate-rope-pull">
             <svg 
-              width="200" 
-              height="150" 
-              viewBox="0 0 200 150" 
-              className="absolute -top-20 left-1/2 transform -translate-x-1/2"
+              width="280" 
+              height="200" 
+              viewBox="0 0 280 200" 
+              className="absolute -top-24 left-1/2 transform -translate-x-1/2"
             >
+              {/* Ground line */}
+              <line x1="0" y1="140" x2="280" y2="140" stroke="hsl(var(--muted-foreground))" strokeWidth="2" opacity="0.3"/>
+              
               {/* Person pulling rope */}
-              <g className="fill-primary">
+              <g className="fill-primary animate-person-strain" style={{ transformOrigin: '50px 110px' }}>
+                {/* Shadow */}
+                <ellipse cx="50" cy="135" rx="18" ry="4" fill="hsl(var(--muted-foreground))" opacity="0.2"/>
+                
                 {/* Body */}
-                <ellipse cx="50" cy="80" rx="15" ry="25" />
+                <ellipse cx="50" cy="90" rx="16" ry="28" />
+                
                 {/* Head */}
-                <circle cx="50" cy="45" r="12" />
-                {/* Arms */}
-                <ellipse cx="70" cy="70" rx="20" ry="8" transform="rotate(15 70 70)" />
-                {/* Legs */}
-                <ellipse cx="45" cy="110" rx="8" ry="15" transform="rotate(-10 45 110)" />
-                <ellipse cx="55" cy="110" rx="8" ry="15" transform="rotate(10 55 110)" />
+                <circle cx="50" cy="50" r="14" />
+                <circle cx="47" cy="47" r="2" fill="white"/>
+                <circle cx="53" cy="47" r="2" fill="white"/>
+                
+                {/* Arms - more detailed */}
+                <ellipse cx="72" cy="75" rx="22" ry="10" transform="rotate(20 72 75)" />
+                <circle cx="85" cy="82" r="6" />
+                
+                {/* Legs - more dynamic */}
+                <ellipse cx="42" cy="120" rx="10" ry="18" transform="rotate(-15 42 120)" />
+                <ellipse cx="58" cy="120" rx="10" ry="18" transform="rotate(15 58 120)" />
+                <circle cx="38" cy="135" r="5" />
+                <circle cx="62" cy="135" r="5" />
+                
+                {/* Hair */}
+                <path d="M 42 42 Q 50 35 58 42 Q 55 38 50 37 Q 45 38 42 42" fill="hsl(var(--primary-dark))"/>
               </g>
-              {/* Rope */}
+              
+              {/* Dynamic Rope with tension effect */}
               <path 
-                d="M 85 70 Q 120 75 150 80" 
+                d="M 88 82 Q 140 85 200 90" 
                 stroke="hsl(var(--secondary))" 
                 strokeWidth="4" 
                 fill="none"
+                className="animate-rope-tension"
+                strokeDasharray="0"
               />
+              
+              {/* Rope highlight for tension */}
+              <path 
+                d="M 88 82 Q 140 85 200 90" 
+                stroke="hsl(var(--primary-light))" 
+                strokeWidth="2" 
+                fill="none"
+                className="animate-rope-tension"
+                opacity="0.6"
+              />
+              
+              {/* Object being pulled (representing the project) */}
+              <g className="animate-button-rope-reveal" style={{ transformOrigin: '220px 95px' }}>
+                {/* Shadow of object */}
+                <ellipse cx="220" cy="110" rx="15" ry="3" fill="hsl(var(--muted-foreground))" opacity="0.2"/>
+                
+                {/* Main object - representing "Conheça Nossos Projetos" */}
+                <rect x="200" y="85" width="40" height="20" rx="10" fill="hsl(var(--primary))" />
+                <rect x="202" y="87" width="36" height="16" rx="8" fill="hsl(var(--primary-light))" />
+                <text x="220" y="98" textAnchor="middle" fontSize="8" fill="white" fontWeight="bold">PROJETO</text>
+                
+                {/* Sparkles around the object */}
+                <circle cx="195" cy="80" r="1.5" fill="hsl(var(--accent))" opacity="0.8">
+                  <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="245" cy="88" r="2" fill="hsl(var(--warm))" opacity="0.6">
+                  <animate attributeName="opacity" values="0.6;0.1;0.6" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="205" cy="110" r="1" fill="hsl(var(--secondary))" opacity="0.7">
+                  <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+              </g>
+              
+              {/* Effort lines */}
+              <g opacity="0.4">
+                <line x1="25" y1="85" x2="30" y2="80" stroke="hsl(var(--primary))" strokeWidth="2"/>
+                <line x1="25" y1="90" x2="30" y2="85" stroke="hsl(var(--primary))" strokeWidth="2"/>
+                <line x1="25" y1="95" x2="30" y2="90" stroke="hsl(var(--primary))" strokeWidth="2"/>
+              </g>
             </svg>
           </div>
         </div>
